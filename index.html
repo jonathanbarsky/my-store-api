@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- esto tiene un origen distinto que el puerto 3000 y nos va a dar un error(si no lo solucionamos) -->
+  <!-- en insomni o postman no nos da este error ya que ellos usan un proxy que hace que tengan el mismo origen y asi evitar este fallo -->
+  <script>
+    (async () => {
+      const response = await fetch("http://localhost:3000/api/v1/products");
+      const data = await respnse.josn();
+      conosle.log(data);
+    })();
+  </script>
+</body>
+</html>
