@@ -1,12 +1,10 @@
 function logErrors(err, req, res, next){//middleware de tipo error
-  console.log("logErrors");
   console.error(err);
   next(err);// es necesario enviar el error para especificar que e un middleware de tipo error
 }
 
 //aunque no estes utilizando la funcion next debes ponerla, ya que es la forma en la que se detecta que es un middleware, debe tener los 4 parametros
 function errorHandler(err, req, res, next){//middleware de formato para devolverse a nuestro cliente
-  console.log("errorHandler");
   res.status(500).json({
     message: err.message,
     stack: err.stack
