@@ -11,16 +11,16 @@ app.use(express.json());// esto sirve para recibir informacion de un metodod pos
 app.use(cors())//de esta manera habilitamos a cualquier dominio o que acepte a cualquier origen
 
 
-const whiteList = ["http://locahost:8080", "http://myapp.co"]// estos son los origenes que quiero que tengan permitido hacer peticiones, o sea que estos origenes va a tener permso de hacer request, esto puede aumentar la seguridad del sitio ademas reduciendo los origenes de los posibles ataques
-const options = {
-  origin: (origin, callback) => {
-    if(whiteList.includes(origin) || !origin){
-      callback(null, true);//null: no hay error y true: tiene el acceso permitido
-    } else{
-      callback(new Error("no permitir"))
-    }
-  }
-}
+// const whiteList = ["http://locahost:8080", "http://myapp.co"]// estos son los origenes que quiero que tengan permitido hacer peticiones, o sea que estos origenes va a tener permso de hacer request, esto puede aumentar la seguridad del sitio ademas reduciendo los origenes de los posibles ataques
+// const options = {
+//   origin: (origin, callback) => {
+//     if(whiteList.includes(origin) || !origin){
+//       callback(null, true);//null: no hay error y true: tiene el acceso permitido
+//     } else{
+//       callback(new Error("no permitir"))
+//     }
+//   }
+// }
 app.get("/api", (req, res) => {
   res.send("Hola, este es mi primer server")
 })
